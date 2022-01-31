@@ -6,7 +6,7 @@ export default class NewItems extends Component {
         return (
             <>
                 {/* <div>This is a News Item.</div> */}
-                <div className="card" style={{width: "18rem"}}>
+                <div className="card">
                     <img src={!imgURL?"https://techcrunch.com/wp-content/uploads/2022/01/dumb-car2.jpg?w=711":imgURL} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{title?title.slice(0, 88).concat("..."):""}</h5>
