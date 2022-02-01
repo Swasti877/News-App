@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 
 export default class NavBar extends Component {
+
     render() {
         return (
             <>
