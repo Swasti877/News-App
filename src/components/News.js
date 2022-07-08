@@ -19,6 +19,8 @@ export default function News(props) {
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - News WebApp`
         handle();
+        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handle = async () => {
