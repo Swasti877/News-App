@@ -19,7 +19,7 @@ export default function News(props) {
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - News WebApp`
         handle();
-    })
+    }, [])
 
     const handle = async () => {
         props.setProgress(0);
