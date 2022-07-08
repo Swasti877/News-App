@@ -14,7 +14,7 @@ export default function NewItems(props) {
                     <h5 className="card-title">{title ? title.slice(0, 88).concat("...") : ""}</h5>
                     <p className="card-text">{description ? description.slice(0, 88).concat("...") : ""}</p>
                     <p className="card-text"><small className="text-muted">By {!author ? "Unknown" : author} on {new Date(date).toGMTString()}</small></p>
-                    <a href={newsURL} target="_blank" className="btn btn-secondary">Read More</a>
+                    <a href={newsURL} target="_blank" className="btn btn-secondary" rel="noreferrer">Read More</a>
                 </div>
             </div>
         </>
