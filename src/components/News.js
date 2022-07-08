@@ -32,7 +32,7 @@ export default function News(props) {
         
         document.title = `${capitalizeFirstLetter(props.category)} - News WebApp`
         handle();
-    }, [])
+    }, [articles])
 
     const fetchMoreData = async () => {
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
