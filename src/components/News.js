@@ -17,24 +17,22 @@ export default function News(props) {
     }
 
     useEffect(() => {
+        const handle = async () => {
+            props.setProgress(0);
+            let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+            setLoading(true)
+            props.setProgress(30);
+            let data = await fetch(url);
+            let parsedData = await data.json();
+            setArticles(parsedData.articles);
+            setLoading(false)
+            setTotalResults(parsedData.totalResults)
+            props.setProgress(100)
+        }
+        
         document.title = `${capitalizeFirstLetter(props.category)} - News WebApp`
         handle();
-        
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    const handle = async () => {
-        props.setProgress(0);
-        let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
-        setLoading(true)
-        props.setProgress(30);
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        setArticles(parsedData.articles);
-        setLoading(false)
-        setTotalResults(parsedData.totalResults)
-        props.setProgress(100)
-    }
 
     const fetchMoreData = async () => {
         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
