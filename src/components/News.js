@@ -6,7 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function News(props) {
 
-    const [articles, setArticles] = useState();
+    const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
@@ -19,7 +19,7 @@ export default function News(props) {
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - News WebApp`
         handle();
-    }, [])
+    }, [handle])
 
     const handle = async () => {
         props.setProgress(0);
